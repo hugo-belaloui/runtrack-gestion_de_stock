@@ -18,6 +18,10 @@ class Database:
     def close_db(self):
         self._cursor.close()
         self._db_connect.close()
+    def get_all_products(self):
+        self._cursor.execute("SELECT * FROM product")
+        products = self._cursor.fetchall()
+        return products
 
 
 db = Database()
